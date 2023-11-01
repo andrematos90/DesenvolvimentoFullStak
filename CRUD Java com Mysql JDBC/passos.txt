@@ -1,0 +1,389 @@
+*criar projeto 
+- file > new > other > Java project
+-nomear "crudemjava"
+- selecionar local do projeto
+- next > finish
+
+*colar o driver de conexao na pastas "resources"
+-criar pasta "resourses"
+- colar o driver "mysql-connector-5.1.18.jar" na pasta
+
+
+*criar o modelo das entidades da tabela
+- criar package dentro de src com o nome "br.com.agenda.model"
+- dentro criar a classe "Contato"
+
+
+
+-------------------------------------------
+
+package br.com.agenda.model;
+
+import java.util.Date;
+
+public class Contato {
+
+	private int id;
+	private String nome;
+	private int idade;
+	private Date dataRegistro;
+}
+
+-----------------------------------------
+
+
+- em "private Date dataRegistro;" importar o java.util.Date;
+
+
+
+
+
+
+
+
+
+
+
+
+
+* criar os getters e setter
+
+- clicar uma vez sobre a classe
+- na aba superior a direita "source" >> "generate getters and setters
+-Select All >> Generate
+
+
+------------------------------------------------
+
+package br.com.agenda.model;
+
+import java.util.Date;
+
+public class Contato {
+
+	private int id;
+	private String nome;
+	private int idade;
+	private Date dataRegistro;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public int getIdade() {
+		return idade;
+	}
+	public void setIdade(int idade) {
+		this.idade = idade;
+	}
+	public Date getDataRegistro() {
+		return dataRegistro;
+	}
+	public void setDataRegistro(Date dataRegistro) {
+		this.dataRegistro = dataRegistro;
+	}
+}
+
+
+-----------------------------------------------
+
+
+*para o java acessar o banco de dados 
+
+
+
+- incluir o driver de conexao no projeto:
+- botao direito na pasta do projeto >> propriedades
+- java build path>> icone superopr "libraries"
+- clilcar em "Modulepath" para ativar "add ExternJARs "
+- clicar em "add ExternJARs"
+- selecionar a pasta resources e selecionar o drive "ok" >> apply >>aplyclose
+
+
+*criar nova package onde mencionará que gerenciará a conexao
+
+
+- criar package com o nome "br.com.agenda.factory"
+- dentro criar a classe "ConnectionFactory"
+-criar as configurações, passando os parametros para 
+acessar o banco
+
+
+----------------------------------------------------
+
+package br.com.agenda.factory;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class ConnectionFactory {
+	
+	//usuario mysql
+	private static final String USERNAME = "root";
+	
+	//senha do usuario
+	private static final String PASSWORD = "1990";
+	
+	//url de conexao com a base de dados
+	private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/agenda";
+	
+	//conexao com o banco de dados
+	
+	public static Connection createConnectionToMySQL() throws Exception  {
+		
+		//faz com que a classe seja carregada pela JVM
+		Class.forName("com.mysql.jdbc.Driver");
+		
+		//cria conexao com o banco de dados
+		Connection connection = DriverManager.getConnection(DATABASE_URL, USERNAME, PASSWORD);
+		
+		return connection;
+	}
+	
+	public static void main(String[] args) throws Exception {
+		//Recuperar conexao com o banco de dados
+		
+		Connection con = createConnectionToMySQL();
+				
+	    //testa a conexao
+		if(con != null) {
+			System.out.println("Conexão estabelecida!");
+			con.close();
+		}
+	}
+	
+}
+
+------------------------------------------------------
+
+
+
+-em "Connection" deixar o mouse em cima e cliar em "import Connection (java.sql) para implementar a interface
+
+- em "Class.forName("com.mysql.jbdc.Driver");"
+deixar o mouse em cima e cliar em "Add throws declaration' >> dois cliques em  "Exception"
+
+-em "con.close" deixar o mouse em cima e cliar em "Add throws declaration' >> dois cliques em  "Exception"
+		
+
+
+*fazer a manipulação da estrutura model com o banco de dados
+
+para issso usa se a estrutura DAO
+
+
+-criar package aonde ficaram as regras de negocios
+-em src botao direiro >> new >> nomear como "br.com.agenda.dao"
+-criar dentro a classe "ContatoDAO" onde sera feita toda a paratremização
+
+------------------------------------------------------
+
+package br.com.agenda.dao;
+
+import java.sql.Connection;
+import java.sql.Date;
+
+import com.mysql.jdbc.PreparedStatement;
+
+import br.com.agenda.factory.ConnectionFactory;
+import br.com.agenda.model.Contato;
+
+
+
+public class ContatoDAO {
+	public void save(Contato contato) {
+		String sql = "INSERT INTO contatos(nome, idade, dataRegistro) VALUES (?, ?, ?)";
+		
+		Connection conn = null;
+		PreparedStatement pstm = null;
+		
+		try {
+			
+			//criar conexeao com banco de dados
+			conn = ConnectionFactory.createConnectionToMySQL();
+			
+			//prepareStatement para executar query
+			pstm = (PreparedStatement) conn.prepareStatement(sql);
+			
+			//adiciona valores esperado pela query
+			pstm.setString(1, contato.getNome());
+			pstm.setInt(2, contato.getIdade());
+			pstm.setDate(3, new Date(contato.getDataRegistro().getTime()));
+			//Executa query
+			pstm.execute();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+			
+		}finally {
+			//fecha as conexoes
+			try {
+				if(pstm!=null) {
+					pstm.close();
+				}
+				if(conn!= null) {
+					conn.close();
+				}
+				}catch (Exception e) {
+					e.printStackTrace();
+			}
+		}
+		
+	}
+}
+
+
+
+
+------------------------------------------------------
+-em "public void save(Contato contato)" em cima de "Contato" deixar mouse em cima e importar "import br.com.agenda.model.Contato;"
+
+- em "Connection conn" importar  "import java.sql.Connection;"
+
+- em "PreparedStatement" importar "import com.mysql.jdbc.PreparedStatement;"
+
+
+-em "pstm = conn.prepareStatement(sql}" mouse em cima 
+e "add cast to"
+
+-em "pstm.setDate(3, new Date);" importar "import java.sql.Date;"
+
+
+
+
+*criar aplicação para inserir os dados, como se fosse a view
+
+-em src criar novo package nomear como "br.com.agenda.aplicacao"
+-criar classe "Main"
+-----------------------------------------------------
+
+package br.com.agenda.aplicacao;
+
+import java.util.Date;
+
+import br.com.agenda.dao.ContatoDAO;
+import br.com.agenda.model.Contato;
+
+public class Main {
+	public static void main(String[] args) {
+		
+		ContatoDAO contatoDao = new ContatoDAO();
+		Contato contato = new Contato();
+		contato.setNome("André");
+		contato.setIdade(33);
+		contato.setDataRegistro(new Date());
+		
+		contatoDao.save(contato);
+		
+	}
+}
+
+
+-----------------------------------------------------
+
+-em "Contato contato = new Contato();" importar "import br.com.agenda.model.Contato;"
+
+- em "contato.setDataRegistro(new Date());"
+importar "import java.util.Date;"
+
+-em "ContatoDAO contatoDao = new ContatoDAO();"
+importar "import br.com.agenda.dao.ContatoDAO;"
+
+*rodar projetos e ver os erros
+
+
+
+*criar banco de dados e tabela no MySQL Workbench
+
+banco
+- botao direito "create Schema"
+- nomear, em charset/collation:utf8 e utf8_general_ci >>aplly>>apply>finish
+
+tabela
+- dar dois cliques em cima do nome do banco para ficar em negrito
+-abrir scripr sql (primeiro icone na parte superior)
+
+
+script para criar a tabela
+------------------------------------------------------
+create table contatos(
+
+id int not null auto_increment primary key,
+nome varchar(40),
+idade int,
+dataRegistro date)
+-----------------------------------------------------
+- execuutar (icone do  raio)
+- atualizar
+
+*rodar projetos e ver os erros 
+
+*criar metodo para lista contatos em ContatoDAO
+
+public List<Contato> getContatos(){
+		String sql = "SELECT * FROM contatos";
+		
+		List<Contato> contatos = new ArrayList<Contato>();
+		
+		Connection conn = null;
+		PreparedStatement pstm = null;
+		
+		//classe que vai recuperar os dados de banco
+		ResultSet rset = null;
+		
+		try {
+			conn = ConnectionFactory.createConnectionToMySQL();
+			
+			pstm = conn.prepareStatement(sql);
+			
+			rset = pstm.executeQuery();
+			
+			while(rset.next()) {
+				Contato contato = new Contato();
+				
+				//Recuperar o id
+				contato.setId(rset.getInt("id"));
+				//recuperar o nome
+				contato.setNome(rset.getString("nome"));
+				//recuperar idade
+				contato.setIdade(rset.getInt("idade"));
+				//recuperar data de registro
+				contato.setDataRegistro(rset.getDate("dataRegistro"));
+				
+				contatos.add(contato);
+			}
+		}
+	}
+
+
+- em " ArrayList<Contato>()" importar java util
+- em "PreparedStatement pstm = null;" importar "com.mysql.jdbc"
+-ResultSet importar "java sql"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*para visualizar os registros
+
+-em Main.javas
+
+for(Contato c: contatoDao.getContato()){
+     System.out.println("Contato: +c.getNome());
+}
