@@ -1,40 +1,22 @@
-package com.api.cars.models;
+package com.api.cars.dto;
 
-import javax.persistence.*;
-import java.io.Serializable;
-import java.util.UUID;
-@Entity
-@Table(name = "TB_CARS")
-public class CarsModel implements Serializable {
-    private static final long SerialVersionUID = 1L;
+import javax.persistence.Column;
+import javax.validation.constraints.NotBlank;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
-    @Column(nullable = false, unique = true, length = 40)
+public class CarsDto {
+
+   @NotBlank
     private String modelCar;
-    @Column(nullable = false, length = 40)
+    @NotBlank
     private String brandCar;
-    @Column(nullable = false, length = 20)
+    @NotBlank
     private String fuelType;
-    @Column(nullable = false)
+    @NotBlank
     private int modelYear;
-    @Column(nullable = false)
+    @NotBlank
     private float zeroToHundred;
-    @Column(nullable = false)
+    @NotBlank
     private boolean imported;
-
-    public long getSerialVersionUID() {
-        return SerialVersionUID;
-    }
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
 
     public String getModelCar() {
         return modelCar;
