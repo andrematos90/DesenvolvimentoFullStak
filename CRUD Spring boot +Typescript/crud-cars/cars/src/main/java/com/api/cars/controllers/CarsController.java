@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -28,6 +30,35 @@ public class CarsController {
     @GetMapping
     public ResponseEntity<List<CarsModel>> getAllCars(){
         return  ResponseEntity.status(HttpStatus.OK).body(carsService.findAll());
+    }
+    @GetMapping("/{id}")
+    public ResponseEntity<Object> getCarById(@PathVariable(value = "id") UUID id){
+        Optional<CarsModel> carsModelOptional = carsService.findById(id);
+       if(!carsModelOptional.isPresent()){
+           return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Carro não encontrado!");
+       }
+        return  ResponseEntity.status(HttpStatus.OK).body(carsModelOptional.get());
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Object> deleteCar(@PathVariable(value = "id")UUID id, @RequestBody CarsDto carsDto){
+        Optional<CarsModel> carsModelOptional = carsService.findById(id);
+        if(!carsModelOptional.isPresent()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Carro não encontrado!");
+        }
+        carsService.delete(carsModelOptional.get());
+        return ResponseEntity.status(HttpStatus.OK).body("Registro  excluido com sucesso!");
+    }
+    @PutMapping("/{id}")
+    public ResponseEntity<Object> putCar(@PathVariable( value = "id") UUID id, @RequestBody CarsDto carsDto){
+        Optional<CarsModel> carsModelOptional = carsService.findById((id));
+        if(!carsModelOptional.isPresent()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Carro não encontrado!");
+        }
+        var carsModel = new CarsModel();
+        BeanUtils.copyProperties(carsDto, carsModel);
+        carsModel.setId(carsModelOptional.get().getId());
+        return ResponseEntity.status(HttpStatus.OK).body(carsService.save(carsModel));
     }
 
 }

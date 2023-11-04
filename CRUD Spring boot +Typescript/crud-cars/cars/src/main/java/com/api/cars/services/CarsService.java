@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class CarsService {
@@ -27,5 +29,14 @@ public class CarsService {
 
     public List<CarsModel> findAll() {
         return carsRepository.findAll();
+    }
+
+    public Optional<CarsModel> findById(UUID id) {
+        return carsRepository.findById(id);
+    }
+
+    @Transactional
+    public void delete(CarsModel carsModel) {
+        carsRepository.delete(carsModel);
     }
 }
