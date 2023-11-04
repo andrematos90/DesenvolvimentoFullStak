@@ -1,6 +1,6 @@
 package com.api.cars.dto;
 
-import javax.persistence.Column;
+
 import javax.validation.constraints.NotBlank;
 
 public class CarsDto {

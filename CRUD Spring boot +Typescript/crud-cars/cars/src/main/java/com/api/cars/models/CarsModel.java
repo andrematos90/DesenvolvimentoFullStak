@@ -1,12 +1,14 @@
 package com.api.cars.models;
 
 import javax.persistence.*;
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.UUID;
 @Entity
 @Table(name = "TB_CARS")
 public class CarsModel implements Serializable {
-    private static final long SerialVersionUID = 1L;
+
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,10 +25,6 @@ public class CarsModel implements Serializable {
     private float zeroToHundred;
     @Column(nullable = false)
     private boolean imported;
-
-    public long getSerialVersionUID() {
-        return SerialVersionUID;
-    }
 
     public UUID getId() {
         return id;
