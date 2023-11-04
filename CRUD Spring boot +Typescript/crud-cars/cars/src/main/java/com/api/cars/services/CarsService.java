@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.transaction.Transactional;
 import javax.validation.Valid;
+import java.util.List;
+
 @Service
 public class CarsService {
     final CarsRepository carsRepository;
@@ -21,5 +23,9 @@ public class CarsService {
    @Transactional
     public CarsModel save(CarsModel carsModel) {
         return carsRepository.save(carsModel);
+    }
+
+    public List<CarsModel> findAll() {
+        return carsRepository.findAll();
     }
 }
