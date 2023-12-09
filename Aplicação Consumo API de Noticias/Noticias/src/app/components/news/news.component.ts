@@ -8,11 +8,13 @@ import { NewsService } from 'src/app/services/news.service';
   styleUrls: ['./news.component.css']
 })
 export class NewsComponent {
+
+  news:News[]=[]
+
   constructor(private newsService:NewsService){
     this.getNews()
   }
 
-  news:News[]=[]
 
   getNews():void{
     this.newsService.getAll().subscribe((response) => {

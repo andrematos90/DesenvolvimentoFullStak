@@ -1,7 +1,14 @@
-export interface News{
-  author:string,
-  title:string,
-  description:string,
-  publishedAt:string,
-  content:string
+
+export interface News {
+  source: {
+    id: string | null;
+    name: string;
+  };
+  author: string;
+  title: string;
+  description: string;
+  url: string;
+  urlToImage: string;
+  publishedAt: string;
+  content: string;
 }

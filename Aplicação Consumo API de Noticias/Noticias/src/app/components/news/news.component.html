@@ -1,6 +1,8 @@
 <ul>
-  <li *ngFor="let new of news">
-    Titulo: {{new.title}}
-    Noticia: {{new.content}}
+  <li *ngFor="let newsItem of news">
+    Titulo: {{ newsItem.title }}
+    Noticia: {{ newsItem.content }}
+    Autor: {{newsItem.author}}
   </li>
 </ul>
+<div *ngIf="!news || news.length === 0">Nenhuma notícia encontrada.</div>
