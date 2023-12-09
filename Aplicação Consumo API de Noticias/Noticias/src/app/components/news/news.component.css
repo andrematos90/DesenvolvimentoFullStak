@@ -1,0 +1,29 @@
+.container{
+  overflow: hidden;
+}
+
+.animated-div {
+  width: 100%;
+  position: absolute;
+  top: 50%; /* Posiciona a div no centro vertical da tela */
+  left: 100%; /* Inicialmente, posiciona a div fora da tela à direita */
+  transform: translate(-50%, -50%); /* Centraliza a div horizontal e verticalmente */
+  padding: 10px;
+
+  color: 	#32CD32;
+  animation: slideInLeft 10s linear infinite; /* Inicia a animação */
+  border: 1px solid #32CD32;
+  white-space: nowrap; /* Impede que o texto quebre em várias linhas */
+}
+
+@keyframes slideInLeft {
+  0% {
+    left: 100%; /* Inicia fora da tela à direita */
+  }
+  50% {
+    left: 50%; /* Move para o centro da tela */
+  }
+  100% {
+    left: -20%; /* Move fora da tela à esquerda */
+  }
+}
