@@ -12,8 +12,6 @@
 
   color: 	#32CD32;
   animation: slideInLeft 10s linear infinite; /* Inicia a animação */
-  border-top: 1px solid #32CD32;
-  border-bottom: 1px solid #32CD32;
   white-space: nowrap; /* Impede que o texto quebre em várias linhas */
 }
 
