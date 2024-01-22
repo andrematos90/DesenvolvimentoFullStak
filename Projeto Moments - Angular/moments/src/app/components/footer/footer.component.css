@@ -1,0 +1,7 @@
+.pmd-footer bg-dark pmd-footer-dark{
+
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(91, 154, 205);
+  color: white;
+}

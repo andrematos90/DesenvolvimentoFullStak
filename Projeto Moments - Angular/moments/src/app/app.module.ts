@@ -10,19 +10,25 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //importações
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
+import { IconModule } from './icon/icon.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    IconModule
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
