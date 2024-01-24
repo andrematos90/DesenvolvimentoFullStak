@@ -16,7 +16,7 @@ footer h3{
 
 footer span{
   font-weight: bold;
-  color: #a52a2A;
+  color: white;
 }
 
 .footer-contacts{
@@ -42,6 +42,13 @@ footer span{
   margin: 10px;
 }
 
-.insta-contact:hover, .git-contact:hover, .linkedin-contact:hover{
-  background-color: whitesmoke;
+app-icon{
+  fill: black; /* Cor padrão do ícone (preto) */
+  transition: fill 0.3s ease; /* Adiciona uma transição suave */
 }
+
+
+app-icon:hover{
+  fill: white; /* Cor ao passar o mouse (branco) */
+}
+
