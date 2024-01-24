@@ -11,6 +11,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import { IconModule } from './icon/icon.module';
+import { HomeComponent } from './components/home/home.component';
+import { AboutComponent } from './components/about/about.component';
 
 
 @NgModule({
@@ -18,6 +20,8 @@ import { IconModule } from './icon/icon.module';
     AppComponent,
     HeaderComponent,
     FooterComponent,
+    HomeComponent,
+    AboutComponent,
 
   ],
   imports: [

@@ -1,7 +1,47 @@
-.pmd-footer bg-dark pmd-footer-dark{
 
+footer{
+  border-top: 1px solid #777;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
   background-color: rgb(91, 154, 205);
-  color: white;
+
+}
+
+footer h3{
+  margin-top: 1.2em;
+}
+
+footer span{
+  font-weight: bold;
+  color: #a52a2A;
+}
+
+.footer-contacts{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  cursor: pointer;
+
+}
+
+.footer-contacts a {
+  text-align: center;
+  text-decoration: none;
+  color: #333; /* Cor do texto */
+
+}
+
+.insta-contact, .git-contact, .linkedin-contact{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+
+.insta-contact:hover, .git-contact:hover, .linkedin-contact:hover{
+  background-color: whitesmoke;
 }

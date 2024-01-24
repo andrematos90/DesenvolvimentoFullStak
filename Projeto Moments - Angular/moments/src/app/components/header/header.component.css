@@ -16,6 +16,8 @@ mat-toolbar{
   margin-right: 8px; /* Ajuste o valor conforme necessário para obter o espaçamento desejado */
 }
 
+
+
 .right-container{
   display: flex;
   justify-content: space-between;
