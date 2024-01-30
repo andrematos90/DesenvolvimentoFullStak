@@ -1,5 +1,24 @@
 .container{
-  height: 100%;
-  width: 100%;
 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+
+}
+
+.container img{
+  width: 100%;
+  height: 50%;
+  border-radius: 100px;
+
+}
+
+.sharing--button a{
+width: 90px;
+height: 30px;
+background-color: #4169E1;
+color: white;
+text-decoration: none;
+cursor: pointer;
 }
