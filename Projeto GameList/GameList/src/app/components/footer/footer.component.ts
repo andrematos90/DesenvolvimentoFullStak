@@ -1,14 +1,21 @@
+
 import { Component } from '@angular/core';
-import { MatToolbar } from '@angular/material/toolbar';
+import { IconModule } from '../../icon/icon.module';
+
+
+
+
 
 @Component({
   selector: 'app-footer',
   standalone: true,
   imports: [
-    MatToolbar
+    IconModule
+
   ],
   templateUrl: './footer.component.html',
-  styleUrl: './footer.component.css'
+  styleUrl: './footer.component.css',
+
 
 })
 export class FooterComponent {

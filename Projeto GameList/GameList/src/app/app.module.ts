@@ -3,12 +3,13 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
+
 
 //importações
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
+import { IconModule } from '../app/icon/icon.module'
 
 
 
@@ -23,10 +24,10 @@ import {MatMenuModule} from '@angular/material/menu';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     MatToolbarModule,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
+    IconModule,
 
   ],
   providers: [],
