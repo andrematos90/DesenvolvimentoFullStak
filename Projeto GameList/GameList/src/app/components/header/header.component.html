@@ -1,0 +1,33 @@
+<mat-toolbar class="header">
+
+  <span>
+    <a>
+      <img class="imagem-logo" src="../../../assets/imagens/logo.png" alt="logo">
+    </a>
+  </span>
+
+  <div class="right-header">
+    <a href="">
+      <button mat-button>
+        Home
+    </button>
+
+    </a>
+
+
+
+    <button mat-button [matMenuTriggerFor]="menuRef">
+        Categorias
+    </button>
+
+    <mat-menu #menuRef="matMenu">
+        <a mat-menu-item href="">Plataforma</a>
+        <a mat-menu-item href="">Corrida</a>
+        <a mat-menu-item href="">RPG</a>
+        <a mat-menu-item href="">Corrida</a>
+    </mat-menu>
+  </div>
+
+
+
+</mat-toolbar>

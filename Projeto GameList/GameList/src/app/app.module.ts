@@ -1,24 +1,35 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AppComponent } from './app.component';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
+
+//importações
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import {MatMenuModule} from '@angular/material/menu';
+
+
 
 
 
 @NgModule({
   declarations: [
-    AppComponent,
+
+
+
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-
+    MatToolbarModule,
+    MatIconModule,
+    MatMenuModule
 
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: []
 })
 export class AppModule { }
