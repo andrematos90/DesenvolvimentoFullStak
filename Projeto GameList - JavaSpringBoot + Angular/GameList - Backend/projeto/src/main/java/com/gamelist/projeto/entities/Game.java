@@ -17,7 +17,9 @@ public class Game {
     private double score;
     private String imgUrl;
 
+    @Column(columnDefinition = "TEXT")
     private String shortDescription;
+    @Column(columnDefinition = "TEXT")
     private String longDescription;
 
     public Game(){
@@ -44,6 +46,9 @@ public class Game {
         this.shortDescription = shortDescription;
         this.longDescription = longDescription;
 
+    }
+
+    public Game(Game game) {
     }
 
     public long getId(){
