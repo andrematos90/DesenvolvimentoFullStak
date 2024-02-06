@@ -1,5 +1,6 @@
 package com.gamelist.projeto.services;
 
+import com.gamelist.projeto.dtos.GameMinDto;
 import com.gamelist.projeto.entities.Game;
 import com.gamelist.projeto.repositories.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +16,17 @@ public class GameService {
     private GameRepository gameRepository;
 
     @Transactional(readOnly = true)
-    public List<Game> findAll(){
+    public List<GameMinDto> findAll(){
         List<Game> result = gameRepository.findAll();
-        return result.stream().map(Game::new).toList();
+        List<GameMinDto>  dto = result.stream().map(x -> new GameMinDto(x)).toList();
+
+        return  dto;
+    }
+
+    @Transactional(readOnly = false)
+    public GameMinDto findById(Long id){
+        Game result = gameRepository.findById(id).get();
+        GameMinDto dto = new GameMinDto(result);
+        return dto;
     }
 }
