@@ -1,1 +1,19 @@
-<p>header works!</p>
+
+<mat-toolbar>
+
+  <div class="logo">
+    <img src="../../../assets/imagens/logo.png" alt="">
+  </div>
+
+  <div>
+    <button mat-button [matMenuTriggerFor]="menu">Categorias</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button>
+</mat-menu>
+
+ <button>Games</button>
+  </div>
+
+
+</mat-toolbar>
