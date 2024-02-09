@@ -6,13 +6,16 @@
   </div>
 
   <div>
+
+    <button routerLink="/">Home</button>
+
     <button mat-button [matMenuTriggerFor]="menu">Categorias</button>
 <mat-menu #menu="matMenu">
   <button mat-menu-item>Item 1</button>
   <button mat-menu-item>Item 2</button>
 </mat-menu>
 
- <button>Games</button>
+ <button routerLink="/games">Games</button>
   </div>
 
 

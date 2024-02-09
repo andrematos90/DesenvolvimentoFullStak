@@ -13,6 +13,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { IconModule } from './icon/icon.module';
+import { GamesComponent } from './components/pages/games/games.component';
+import { CategoriesComponent } from './components/pages/categories/categories.component';
+import { MatCardModule } from '@angular/material/card';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,6 +24,8 @@ import { IconModule } from './icon/icon.module';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
+    GamesComponent,
+    CategoriesComponent,
 
   ],
   imports: [
@@ -29,7 +35,9 @@ import { IconModule } from './icon/icon.module';
     MatToolbarModule,
     MatIconModule,
     MatMenuModule,
-    IconModule
+    IconModule,
+    MatCardModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
