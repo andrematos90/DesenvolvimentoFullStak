@@ -1,12 +1,14 @@
-<mat-card class="example-card">
-  <mat-card-header>
-    <mat-card-title-group>
-      <mat-card-title *ngFor="let game of allGames">{{ game.title }}</mat-card-title>
-      <mat-card-subtitle>Small</mat-card-subtitle>
-      <img mat-card-sm-image *ngFor="let game of allGames" src="{{game.imgUrl}}" >
-    </mat-card-title-group>
-  </mat-card-header>
-  <mat-card-content *ngFor="let game of allGames">
-    {{game.shortDescription}}
-  </mat-card-content>
-</mat-card>
+<div class="container">
+  <mat-card class="card-container" *ngFor="let game of allGames">
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title>{{ game.title }}</mat-card-title>
+        <mat-card-subtitle>{{game.platforms}}</mat-card-subtitle>
+        <img mat-card-sm-image src="{{game.imgUrl}}" >
+      </mat-card-title-group>
+    </mat-card-header>
+    <mat-card-content>
+      {{game.shortDescription}}
+    </mat-card-content>
+  </mat-card>
+</div>

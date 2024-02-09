@@ -1,17 +1,39 @@
-.container{
-  background-image: url("../../../../assets/imagens/backgroundGames.jpg");
-  background-size: cover; /* Isso faz com que a imagem cubra todo o fundo */
-  background-position: center; /* Isso centraliza a imagem */
-  background-repeat: no-repeat; /* Isso evita a repetição da imagem */
-  width: 100vw;
-  height: 100vh;
+.container {
   display: flex;
-  flex-direction: column;
-  color: white;
-  font-size: large;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-image: url("../../../../assets/imagens/backgroundGames.jpg");
+  background-size: cover; /* Ajusta o tamanho da imagem para cobrir todo o elemento */
+    background-position: center; /* Centraliza a imagem de fundo */
 }
 
-.example-card{
-  display: flex;
+.card-container {
+  width: calc(33.3333% - 20px); /* Define a largura de cada card */
+  margin-bottom: 20px;
+  border: 1px solid #ccc; /* Adiciona uma borda aos cards */
+  box-sizing: border-box; /* Garante que a borda não aumente o tamanho do card */
+  margin: 10px;
+  justify-content: center;
   flex-direction: column;
+}
+
+.mat-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mat-card-title-group {
+  display: flex;
+  align-items: center;
+}
+
+.mat-card-title {
+  margin-right: 10px;
+}
+
+.mat-card-content {
+  max-height: 100px; /* Define a altura máxima do conteúdo */
+  overflow: hidden; /* Esconde o conteúdo que excede a altura máxima */
+  padding: 10px;
 }
