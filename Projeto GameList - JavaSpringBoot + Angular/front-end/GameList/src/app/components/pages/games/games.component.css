@@ -3,37 +3,67 @@
   flex-wrap: wrap;
   justify-content: space-between;
   background-image: url("../../../../assets/imagens/backgroundGames.jpg");
-  background-size: cover; /* Ajusta o tamanho da imagem para cobrir todo o elemento */
-    background-position: center; /* Centraliza a imagem de fundo */
+  background-size: cover;
+  background-position: center;
 }
 
 .card-container {
-  width: calc(33.3333% - 20px); /* Define a largura de cada card */
+  width: calc(20% - 20px); /* Definindo a largura para 25% do espaço disponível */
   margin-bottom: 20px;
-  border: 1px solid #ccc; /* Adiciona uma borda aos cards */
-  box-sizing: border-box; /* Garante que a borda não aumente o tamanho do card */
+  border: 1px solid #ccc;
+  box-sizing: border-box;
   margin: 10px;
   justify-content: center;
   flex-direction: column;
+  position: relative;
 }
 
-.mat-card-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.image-container {
+  position: relative;
 }
 
-.mat-card-title-group {
-  display: flex;
-  align-items: center;
+.image-container img {
+  width: 100%;
+  height: auto;
 }
 
-.mat-card-title {
-  margin-right: 10px;
+.platform {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px;
+}
+
+.title {
+  margin-top: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px;
 }
 
 .mat-card-content {
-  max-height: 100px; /* Define a altura máxima do conteúdo */
-  overflow: hidden; /* Esconde o conteúdo que excede a altura máxima */
+  max-height: 100px;
+  overflow: hidden;
   padding: 10px;
+}
+
+
+.card-container {
+  /* outros estilos */
+
+  /* Adicionando transição suave para a mudança de estilo */
+  transition: transform 0.3s ease;
+}
+
+.card-container:hover {
+  /* Aumentar ligeiramente o tamanho do card quando o mouse estiver sobre ele */
+  transform: scale(1.05);
+  cursor: pointer; /* Mudar o cursor para indicar que é clicável */
+}
+
+/* Adicionando estilo para quando o mouse está sobre a plataforma */
+.platform:hover {
+  background-color: rgba(0, 0, 0, 0.7); /* Escurecer um pouco a cor de fundo */
 }

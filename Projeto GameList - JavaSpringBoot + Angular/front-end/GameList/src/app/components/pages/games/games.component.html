@@ -1,12 +1,10 @@
 <div class="container">
   <mat-card class="card-container" *ngFor="let game of allGames">
-    <mat-card-header>
-      <mat-card-title-group>
-        <mat-card-title>{{ game.title }}</mat-card-title>
-        <mat-card-subtitle>{{game.platforms}}</mat-card-subtitle>
-        <img mat-card-sm-image src="{{game.imgUrl}}" >
-      </mat-card-title-group>
-    </mat-card-header>
+    <div class="image-container">
+      <img mat-card-lg-image src="{{game.imgUrl}}">
+      <div class="platform">{{game.platforms}}</div>
+    </div>
+    <div class="title">{{ game.title }}</div>
     <mat-card-content>
       {{game.shortDescription}}
     </mat-card-content>
