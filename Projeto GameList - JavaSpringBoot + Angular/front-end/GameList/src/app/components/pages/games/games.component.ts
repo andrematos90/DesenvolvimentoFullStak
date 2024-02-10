@@ -29,10 +29,12 @@ export class GamesComponent implements OnInit {
     });
   }
 
-  toggle(){
-    this.show = !this.show
+  openModal(){
+    this.show = true
   }
 
-
+  closeModal(){
+    this.show = false
+  }
 
 }

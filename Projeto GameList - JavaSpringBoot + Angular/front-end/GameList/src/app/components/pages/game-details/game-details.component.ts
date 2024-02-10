@@ -7,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GameDetailsComponent implements OnInit {
 
+  show: boolean = true;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  closeBtn(){
+    this.show = false
+  }
 
 }
