@@ -17,6 +17,8 @@ import { GamesComponent } from './components/pages/games/games.component';
 import { CategoriesComponent } from './components/pages/categories/categories.component';
 import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
+import { GameDetailsComponent } from './components/pages/game-details/game-details.component';
+
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     GamesComponent,
     CategoriesComponent,
+    GameDetailsComponent,
 
   ],
   imports: [

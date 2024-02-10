@@ -14,6 +14,9 @@ export class GamesComponent implements OnInit {
 
   baseApiUrl = environment.baseApiUrl;
   allGames: Game[] = [];
+  show: boolean = false;
+
+
 
   constructor(
     private gameService : GamesService
@@ -25,5 +28,11 @@ export class GamesComponent implements OnInit {
       console.log(this.allGames)
     });
   }
+
+  toggle(){
+    this.show = !this.show
+  }
+
+
 
 }

@@ -67,3 +67,15 @@
 .platform:hover {
   background-color: rgba(0, 0, 0, 0.7); /* Escurecer um pouco a cor de fundo */
 }
+
+@media (min-width: 768px) {
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+
+
+
+
