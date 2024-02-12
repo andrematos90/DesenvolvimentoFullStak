@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Game } from 'src/app/interfaces/Game';
 import { GamesService } from 'src/app/services/games.service';
 import { environment } from 'src/environments/environment';
+import { EventService } from 'src/app/services/event.service';
+import { StateService } from 'src/app/services/state.service';
 
 @Component({
   selector: 'app-games',
@@ -19,22 +21,24 @@ export class GamesComponent implements OnInit {
 
 
   constructor(
-    private gameService : GamesService
+    private gameService : GamesService,
+    private eventService: EventService,
+    private stateService: StateService,
   ) { }
 
   ngOnInit(): void {
     this.gameService.getGames().subscribe(response => {
       this.allGames = response
-      console.log(this.allGames)
+
+    });
+
+    this.stateService.showModal$.subscribe((value) => {
+      this.show = value;
     });
   }
 
   openModal(){
-    this.show = true
-  }
-
-  closeModal(){
-    this.show = false
+    this.eventService.emitToggleEvent();
   }
 
 }
