@@ -5,6 +5,7 @@
 
 .top-content {
   background-color: #363636;
+  background-image: linear-gradient(to bottom, #1C1C1C, #363636);
   font-family: "Karla";
 }
 
@@ -16,7 +17,7 @@
 .details{
   display: flex;
   flex-direction: column;
-  background-color: #4F4F4F;
+  background-image: linear-gradient(to bottom, #363636, #4F4F4F);
 
 }
 
@@ -27,6 +28,6 @@
 
 .description-content {
   margin-top: 20px; /* ou qualquer outro valor que você preferir */
-  background-color: #363636;
+  background-image: linear-gradient(to bottom, #4F4F4F, #696969);
   font-size: 16px;
 }
