@@ -1,5 +1,5 @@
 <div class="container">
-  <mat-card  class="card-container" *ngFor="let game of allGames" (click)="openModal()">
+  <mat-card  class="card-container" *ngFor="let game of allGames" (click)="openModal(game)">
     <div class="image-container">
       <img mat-card-lg-image src="{{game.imgUrl}}">
       <div class="platform">{{game.platforms}}</div>

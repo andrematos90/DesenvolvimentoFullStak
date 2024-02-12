@@ -5,6 +5,7 @@ import { GamesService } from 'src/app/services/games.service';
 import { environment } from 'src/environments/environment';
 import { EventService } from 'src/app/services/event.service';
 import { StateService } from 'src/app/services/state.service';
+import { DetailsService } from 'src/app/services/details.service';
 
 @Component({
   selector: 'app-games',
@@ -24,6 +25,7 @@ export class GamesComponent implements OnInit {
     private gameService : GamesService,
     private eventService: EventService,
     private stateService: StateService,
+    private detailService: DetailsService,
   ) { }
 
   ngOnInit(): void {
@@ -35,10 +37,13 @@ export class GamesComponent implements OnInit {
     this.stateService.showModal$.subscribe((value) => {
       this.show = value;
     });
+
+
   }
 
-  openModal(){
+  openModal(game:Game){
     this.eventService.emitToggleEvent();
+    this.detailService.setDetailsGame(game);
   }
 
 }

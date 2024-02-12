@@ -1,14 +1,29 @@
 <ng-container>
-  <div>
-    <button class="close-btn" (click)="closeBtn()">Fechar</button>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit esse officiis corrupti unde repellat non quibusdam! Id nihil itaque
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit esse officiis corrupti unde repellat non quibusdam! Id nihil itaque
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit esse officiis corrupti unde repellat non quibusdam! Id nihil itaque
-    </p>
+  <button class="close-btn" (click)="closeBtn()">
+      <app-icon src="../../../../assets/icons/close-button.svg"></app-icon>
+  </button>
+
+  <div class="container">
+      <div class="top-content">
+          <h1>{{game.title}} - {{game.year}}</h1>
+      </div>
+
+      <div class="medium-content">
+          <div class="image-container">
+              <img src={{game.imgUrl}} alt="">
+          </div>
+         <div>
+          <div class="details">
+            <span><b>Gênero:</b> {{game.genre}}</span>
+            <span><b>Plataformas:</b> {{game.platforms}}</span>
+            <span><b>Pontuação:</b> {{game.score}}</span>
+        </div>
+        <div class="description-content">
+          <span><b>Descrição:</b> {{game.longDescription}}</span>
+      </div>
+         </div>
+      </div>
+
+
   </div>
-
 </ng-container>
-
-para o proximo estudo fazer com que a a propriedade show seja compartilhada
-entre game e gameDetails para que o botao e fechar modal funcione
-talvez tenha que declarar a propriedade e a função em app component
