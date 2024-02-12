@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StateService } from 'src/app/services/state.service';
 
 
 @Component({
@@ -10,7 +11,7 @@ export class GameDetailsComponent implements OnInit {
 
   show: boolean = true;
 
-  constructor() { }
+  constructor(private stateService : StateService) { }
 
   ngOnInit(): void {
 
@@ -19,7 +20,8 @@ export class GameDetailsComponent implements OnInit {
   }
 
   closeBtn(){
-
+    this.stateService.setShowModal(false);
+    console.log("clicou")
   }
 
 }
