@@ -21,6 +21,7 @@ import { GameDetailsComponent } from './components/pages/game-details/game-detai
 import { RolePlayngShooterComponent } from './components/pages/categories/role-playng-shooter/role-playng-shooter.component';
 import { RolePlayngAdventureComponent } from './components/pages/categories/role-playng-adventure/role-playng-adventure.component';
 import { PlatformComponent } from './components/pages/categories/platform/platform.component';
+import { CategoryDetailsComponent } from './components/pages/categories/category-details/category-details.component';
 
 
 
@@ -36,6 +37,7 @@ import { PlatformComponent } from './components/pages/categories/platform/platfo
     RolePlayngShooterComponent,
     RolePlayngAdventureComponent,
     PlatformComponent,
+    CategoryDetailsComponent,
 
   ],
   imports: [

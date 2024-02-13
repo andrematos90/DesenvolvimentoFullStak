@@ -7,14 +7,14 @@ import { CategoriesComponent } from './components/pages/categories/categories.co
 import { GameDetailsComponent } from './components/pages/game-details/game-details.component';
 import { PlatformComponent } from './components/pages/categories/platform/platform.component';
 import { RolePlayngShooterComponent } from './components/pages/categories/role-playng-shooter/role-playng-shooter.component';
+import { CategoryDetailsComponent } from './components/pages/categories/category-details/category-details.component';
 
 const routes: Routes = [
   {path:'', component:HomeComponent},
   {path:'games', component:GamesComponent},
   {path:'games/categories', component:CategoriesComponent},
-  {path:'games/categories/platform', component: PlatformComponent},
-  {path:'games/categories/adventure', component: RolePlayngAdventureComponent},
-  {path:'games/categories/shooter', component: RolePlayngShooterComponent},
+  {path:'games/categories/:genre', component: CategoryDetailsComponent},
+
   {path:'details', component:GameDetailsComponent,}
 ];
 

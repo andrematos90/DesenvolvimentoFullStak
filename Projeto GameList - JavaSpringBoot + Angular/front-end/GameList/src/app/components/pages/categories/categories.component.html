@@ -1,7 +1,7 @@
 <div class="container">
   <mat-card  class="card-container" *ngFor="let category of allCategories">
+    <a class="title" [routerLink]="['/games/categories/', category.genre]">{{ category.genre }}</a>
 
-    <div class="title">{{ category.genre }}</div>
 
     <mat-card-content>
 
