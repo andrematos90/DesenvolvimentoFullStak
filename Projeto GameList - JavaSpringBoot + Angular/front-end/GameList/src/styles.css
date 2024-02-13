@@ -5,7 +5,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Sixtyfour&display=swap');
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html {
+  margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+
+
+}
 
 
 /* Estilo para o modal */

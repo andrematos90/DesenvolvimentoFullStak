@@ -1,10 +1,38 @@
-.container{
+.container {
   background-image: url("../../../../assets/imagens/categorieWallpaper.jpg");
   background-size: cover; /* Isso faz com que a imagem cubra todo o fundo */
   background-position: center; /* Isso centraliza a imagem */
   background-repeat: no-repeat; /* Isso evita a repetição da imagem */
-  width: 100vw;
+  width: 97,5vw;
   height: 100vh;
   display: flex;
+  flex-wrap: wrap; /* Adicionado para garantir que os cards sejam envolvidos em várias linhas */
+  justify-content: space-around; /* Espaçamento uniforme entre os cards */
+  align-items: center; /* Alinhar os cards verticalmente */
+  color: white;
+}
+
+.card-container {
+  width: 30%; /* Definindo a largura para 30% do espaço disponível */
+  height: 100px; /* Definindo uma altura fixa */
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+
+  display: flex;
   flex-direction: column;
+  justify-content: space-between; /* Distribui o espaço uniformemente entre os elementos filhos */
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+mat-card{
+  margin: 20px;
+}
+
+
+.title {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px;
 }
