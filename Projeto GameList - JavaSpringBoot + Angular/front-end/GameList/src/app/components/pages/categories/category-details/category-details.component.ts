@@ -1,9 +1,8 @@
-import { Component, OnInit, } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PlatformComponent } from '../platform/platform.component';
 import { RolePlayngAdventureComponent } from '../role-playng-adventure/role-playng-adventure.component';
 import { RolePlayngShooterComponent } from '../role-playng-shooter/role-playng-shooter.component';
-
 
 @Component({
   selector: 'app-category-details',
@@ -18,20 +17,22 @@ export class CategoryDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     const categoriaGenre = this.route.snapshot.paramMap.get('genre');
+
     if (categoriaGenre !== null) {
       switch (categoriaGenre) {
-        case 'platform':
+        case 'Platform':
           this.componenteSelecionado = PlatformComponent;
           break;
-        case 'role-playing-adventure':
+        case 'Role-playing (RPG), Adventure':
           this.componenteSelecionado = RolePlayngAdventureComponent;
           break;
-        case 'role-playing-shooter':
+        case 'Role-playing (RPG), Shooter':
           this.componenteSelecionado = RolePlayngShooterComponent;
           break;
         default:
-        // Lida com casos de categoria não encontrada
+          // Lida com casos de categoria não encontrada
       }
     }
+
   }
 }
