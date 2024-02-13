@@ -18,6 +18,10 @@ import { CategoriesComponent } from './components/pages/categories/categories.co
 import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
 import { GameDetailsComponent } from './components/pages/game-details/game-details.component';
+import { RolePlayngShooterComponent } from './components/pages/categories/role-playng-shooter/role-playng-shooter.component';
+import { RolePlayngAdventureComponent } from './components/pages/categories/role-playng-adventure/role-playng-adventure.component';
+import { PlatformComponent } from './components/pages/categories/platform/platform.component';
+
 
 
 @NgModule({
@@ -29,6 +33,9 @@ import { GameDetailsComponent } from './components/pages/game-details/game-detai
     GamesComponent,
     CategoriesComponent,
     GameDetailsComponent,
+    RolePlayngShooterComponent,
+    RolePlayngAdventureComponent,
+    PlatformComponent,
 
   ],
   imports: [

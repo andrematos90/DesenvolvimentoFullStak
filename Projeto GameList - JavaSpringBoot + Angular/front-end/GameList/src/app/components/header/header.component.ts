@@ -1,4 +1,10 @@
+
 import { Component, OnInit } from '@angular/core';
+import { Category } from 'src/app/interfaces/Category';
+import { Game } from 'src/app/interfaces/Game';
+import { CategoryService } from 'src/app/services/category.service';
+
+
 
 
 @Component({
@@ -9,9 +15,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  allCategories: Category[]=[];
+
+
+  constructor(private categoryService: CategoryService) { }
 
   ngOnInit(): void {
+    this.allCategories = this.categoryService.getCategories();
+
   }
 
 }
