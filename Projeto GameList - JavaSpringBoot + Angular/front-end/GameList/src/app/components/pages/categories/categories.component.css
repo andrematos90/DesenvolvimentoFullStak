@@ -21,18 +21,21 @@
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Distribui o espaço uniformemente entre os elementos filhos */
+  justify-content: center;
   position: relative;
   transition: transform 0.3s ease;
+
+
 }
 
-mat-card{
-  margin: 20px;
-}
+
 
 
 .title {
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
   padding: 10px;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
 }

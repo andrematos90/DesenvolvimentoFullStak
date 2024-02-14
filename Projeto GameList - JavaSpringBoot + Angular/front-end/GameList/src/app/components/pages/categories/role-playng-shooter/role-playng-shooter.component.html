@@ -1,1 +1,23 @@
-<div class="container"></div>
+<div class="container">
+  <ng-container *ngFor="let game of allGames">
+    <ng-container *ngIf="game.genre.includes('Role-playing (RPG), Shooter')">
+      <!-- Se o gênero do jogo corresponder, renderize o jogo -->
+      <mat-card class="card-container" (click)="openModal(game)">
+        <div class="image-container">
+          <img mat-card-lg-image [src]="game.imgUrl">
+          <div class="platform">{{ game.platforms }}</div>
+        </div>
+        <div class="title">{{ game.title }}</div>
+        <mat-card-content>
+          {{ game.shortDescription }}
+        </mat-card-content>
+      </mat-card>
+    </ng-container>
+  </ng-container>
+
+  <div class="modal" *ngIf="show">
+    <app-game-details></app-game-details>
+  </div>
+
+  <div class="overlay" *ngIf="show"></div>
+</div>

@@ -8,3 +8,73 @@
   display: flex;
   flex-direction: column;
 }
+
+.card-container {
+  width: calc(20% - 20px); /* Definindo a largura para 25% do espaço disponível */
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  margin: 10px;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.image-container {
+  position: relative;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+}
+
+.platform {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px;
+}
+
+.title {
+  margin-top: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px;
+}
+
+.mat-card-content {
+  max-height: 100px;
+  overflow: hidden;
+  padding: 10px;
+}
+
+
+.card-container {
+  /* outros estilos */
+
+  /* Adicionando transição suave para a mudança de estilo */
+  transition: transform 0.3s ease;
+}
+
+.card-container:hover {
+  /* Aumentar ligeiramente o tamanho do card quando o mouse estiver sobre ele */
+  transform: scale(1.05);
+  cursor: pointer; /* Mudar o cursor para indicar que é clicável */
+}
+
+/* Adicionando estilo para quando o mouse está sobre a plataforma */
+.platform:hover {
+  background-color: rgba(0, 0, 0, 0.7); /* Escurecer um pouco a cor de fundo */
+}
+
+@media (min-width: 768px) {
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+
