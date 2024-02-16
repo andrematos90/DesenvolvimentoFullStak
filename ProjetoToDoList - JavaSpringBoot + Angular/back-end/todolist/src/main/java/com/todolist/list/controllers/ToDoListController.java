@@ -27,13 +27,18 @@ public class ToDoListController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Object> getActivityById(@PathVariable(value = "id") Integer id){
+    public ResponseEntity<Object> getOneActivityById(@PathVariable(value = "id") Integer id){
         Optional<ToDoListModel> activity = toDoListService.findActivityById(id);
         if(!activity.isPresent()){
             return  ResponseEntity.status(HttpStatus.NOT_FOUND).body("Id não encontrado");
         }
         return ResponseEntity.status(HttpStatus.OK).body(activity.get());
 
+    }
+
+    @GetMapping
+    public ResponseEntity<List<ToDoListModel>> getAllActivitys(){
+        return ResponseEntity.status(HttpStatus.OK).body(toDoListService.getAllActivitys());
     }
 
     @DeleteMapping("/{id}")
@@ -44,6 +49,30 @@ public class ToDoListController {
         }
         toDoListService.deleteActivity(toDoListModelOptional.get());
         return ResponseEntity.status(HttpStatus.OK).body("Registro Excluido!");
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Object> updateToDoList(@PathVariable(value="id")Integer id, @RequestBody @Valid ToDoListModel toDoListModel){
+        Optional<ToDoListModel> toDoListModelOptional = toDoListService.findActivityById(id);
+        if(!toDoListModelOptional.isPresent()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Atividade não encontrada!");
+        }
+        else{
+
+            ToDoListModel newData = toDoListModelOptional.get();
+
+            newData.setActivity(toDoListModel.getActivity());
+            newData.setDescription(toDoListModel.getDescription());
+            newData.setCompleted(toDoListModel.getCompleted());
+            newData.setDuration(toDoListModel.getDuration());
+            newData.setDeadLine((toDoListModel.getDeadLine()));
+            newData.setExceeded(toDoListModel.getExceeded());
+
+
+            ToDoListModel atividadeAtualizada = toDoListService.saveActivity(newData);
+
+            return  new ResponseEntity<>(toDoListModel, HttpStatus.OK);
+        }
     }
 
 

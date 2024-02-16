@@ -23,6 +23,11 @@ public class ToDoListService {
     }
 
     @Transactional
+    public List<ToDoListModel> getAllActivitys(){
+        return  toDoListRepository.findAll();
+    }
+
+    @Transactional
     public Optional<ToDoListModel> findActivityById(Integer id){
         return  toDoListRepository.findById(id);
     }
