@@ -34,7 +34,16 @@ public class ToDoListController {
         }
         return ResponseEntity.status(HttpStatus.OK).body(activity.get());
 
+    }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Object> deleteActivity(@PathVariable(value = "id") Integer id, @RequestBody @Valid ToDoListModel toDoListModel){
+        Optional<ToDoListModel> toDoListModelOptional = toDoListService.findActivityById(id);
+        if(!toDoListModelOptional.isPresent()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Atividade não encontrada!");
+        }
+        toDoListService.deleteActivity(toDoListModelOptional.get());
+        return ResponseEntity.status(HttpStatus.OK).body("Registro Excluido!");
     }
 
 

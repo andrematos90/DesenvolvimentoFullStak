@@ -27,6 +27,11 @@ public class ToDoListService {
         return  toDoListRepository.findById(id);
     }
 
+    @Transactional
+    public void deleteActivity(ToDoListModel toDoListModel){
+        toDoListRepository.delete(toDoListModel);
+    }
+
 }
 
 
