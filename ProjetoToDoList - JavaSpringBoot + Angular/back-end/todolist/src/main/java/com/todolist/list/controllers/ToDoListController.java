@@ -12,7 +12,7 @@ import java.util.Optional;
 
 
 @RestController
-@RequestMapping("/to-do-list")
+@RequestMapping("/todolist")
 public class ToDoListController {
 
     @Autowired
