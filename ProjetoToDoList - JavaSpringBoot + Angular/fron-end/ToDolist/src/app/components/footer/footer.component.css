@@ -1,0 +1,49 @@
+footer{
+  background-color: rgb(33, 33, 33);
+  color: white;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.container{
+  display: flex;
+}
+
+.left-container, .medium-container{
+  margin: 10px;
+  padding: 5px;
+
+}
+
+.left-container span, .medium-container span{
+
+  margin-left: 10px;
+}
+
+.github, .linkedin, .instagram{
+  display: flex;
+ align-items: center;
+ padding: 5px;
+ gap: 5px;
+
+}
+
+.medium-container{
+display: flex;
+flex-direction: column;
+gap: 5px;
+
+}
+
+.email, .fone{
+  margin: 5px;
+  margin-left: 10px;
+}
+
+.bottom-container{
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
