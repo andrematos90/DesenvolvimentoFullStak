@@ -4,6 +4,6 @@ export interface List{
   completed : boolean;
   exceeded : boolean;
   duration : Date;
-  deadLiane : Date
+  deadLine : Date
 }
 

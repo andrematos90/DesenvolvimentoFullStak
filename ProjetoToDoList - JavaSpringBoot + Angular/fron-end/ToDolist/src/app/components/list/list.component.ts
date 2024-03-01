@@ -1,6 +1,8 @@
 import { List } from 'src/app/interfaces/List';
 import { ListService } from './../../services/list.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import {MatTable, MatTableModule} from '@angular/material/table';
+import {MatButtonModule} from '@angular/material/button';
 
 
 @Component({
@@ -11,7 +13,9 @@ import { Component, OnInit } from '@angular/core';
 export class ListComponent implements OnInit {
 
   dataSource:List[]=[]
-  displayedColumns!:any
+  displayedColumns: string[] = ['activity', 'description', 'deadLine', 'exceeded', 'completed', 'actions'];
+
+  @ViewChild(MatTable) table!: MatTable<List>;
 
   constructor(private listService: ListService) { }
 

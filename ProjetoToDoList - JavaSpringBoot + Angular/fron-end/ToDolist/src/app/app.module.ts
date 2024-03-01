@@ -13,6 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { ListComponent } from './components/list/list.component';
 import { MatTableModule } from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { HttpClientModule } from '@angular/common/http';
     IconModule,
     MatIconModule,
     MatTableModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTooltipModule
 
 
   ],
