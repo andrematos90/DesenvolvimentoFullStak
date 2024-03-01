@@ -1,4 +1,7 @@
+import { List } from 'src/app/interfaces/List';
+import { ListService } from './../../services/list.service';
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-list',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  constructor() { }
+  dataSource:List[]=[]
+  displayedColumns!:any
+
+  constructor(private listService: ListService) { }
 
   ngOnInit(): void {
+    this.listService.getList().subscribe(response =>{
+      this.dataSource = response
+    })
   }
+
+  addTask(){}
 
 }

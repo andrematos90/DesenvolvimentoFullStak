@@ -11,6 +11,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { IconModule } from './icon/icon.module';
 import { MatIconModule } from '@angular/material/icon';
 import { ListComponent } from './components/list/list.component';
+import { MatTableModule } from '@angular/material/table';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -19,7 +21,8 @@ import { ListComponent } from './components/list/list.component';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    ListComponent
+    ListComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,11 @@ import { ListComponent } from './components/list/list.component';
     BrowserAnimationsModule,
     MatToolbarModule,
     IconModule,
-    MatIconModule
+    MatIconModule,
+    MatTableModule,
+    HttpClientModule
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
