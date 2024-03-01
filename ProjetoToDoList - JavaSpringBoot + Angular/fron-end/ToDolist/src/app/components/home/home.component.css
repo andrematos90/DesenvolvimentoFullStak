@@ -7,4 +7,13 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
+
+}
+
+.component{
+  width: 500px;
+  height: 600px;
+  border: 1px solid green;
+  margin: 20px;
 }
