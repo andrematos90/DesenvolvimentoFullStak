@@ -10,7 +10,7 @@ public class ToDoListDTO {
     private String activity;
     private boolean completed;
     private boolean exceeded;
-    private Duration duration;
+
     private LocalDate deadLine;
 
     public ToDoListDTO() {
@@ -20,7 +20,7 @@ public class ToDoListDTO {
         this.activity = activity;
         this.completed = completed;
         this.exceeded = exceeded;
-        this.duration = duration;
+
         this.deadLine = deadLine;
     }
 
@@ -46,14 +46,6 @@ public class ToDoListDTO {
 
     public void setExceeded(boolean exceeded) {
         this.exceeded = exceeded;
-    }
-
-    public Duration getDuration() {
-        return duration;
-    }
-
-    public void setDuration(Duration duration) {
-        this.duration = duration;
     }
 
     public LocalDate getDeadLine() {

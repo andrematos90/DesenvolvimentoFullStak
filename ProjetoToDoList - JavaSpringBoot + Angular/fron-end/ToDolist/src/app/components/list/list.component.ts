@@ -25,6 +25,6 @@ export class ListComponent implements OnInit {
     })
   }
 
-  addTask(){}
+  openCreateTaskModal(){}
 
 }

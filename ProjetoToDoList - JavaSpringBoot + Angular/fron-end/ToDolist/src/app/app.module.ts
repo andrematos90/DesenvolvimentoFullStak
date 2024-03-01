@@ -14,6 +14,7 @@ import { ListComponent } from './components/list/list.component';
 import { MatTableModule } from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatIconModule,
     MatTableModule,
     HttpClientModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatButtonModule
 
 
   ],

@@ -19,8 +19,7 @@ public class ToDoListModel {
     private boolean completed;
 
     private boolean exceeded;
-    @Convert(converter = DurationConverter.class)
-    private Duration duration;
+
     private LocalDate deadLine;
 
 
@@ -31,14 +30,14 @@ public class ToDoListModel {
                          String description,
                          boolean completed,
                          boolean exceeded,
-                         Duration duration,
+
                          LocalDate deadLine){
         this.id = id;
         this.activity = activity;
         this.description = description;
         this.completed = completed;
         this.exceeded = exceeded;
-        this.duration = duration;
+
         this.deadLine = deadLine;
     }
 
@@ -82,13 +81,7 @@ public class ToDoListModel {
         this.exceeded = exceeded;
     }
 
-    public Duration getDuration(){
-        return  this.duration;
-    }
 
-    public void setDuration(Duration duration){
-        this.duration = duration;
-    }
 
     public LocalDate getDeadLine(){
         return this.deadLine;

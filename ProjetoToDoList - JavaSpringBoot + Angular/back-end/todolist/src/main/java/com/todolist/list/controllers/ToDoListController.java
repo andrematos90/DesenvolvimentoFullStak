@@ -64,7 +64,6 @@ public class ToDoListController {
             newData.setActivity(toDoListModel.getActivity());
             newData.setDescription(toDoListModel.getDescription());
             newData.setCompleted(toDoListModel.getCompleted());
-            newData.setDuration(toDoListModel.getDuration());
             newData.setDeadLine((toDoListModel.getDeadLine()));
             newData.setExceeded(toDoListModel.getExceeded());
 
