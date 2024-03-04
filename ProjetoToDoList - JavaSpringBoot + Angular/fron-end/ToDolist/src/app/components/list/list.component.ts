@@ -14,6 +14,7 @@ export class ListComponent implements OnInit {
 
   dataSource:List[]=[]
   displayedColumns: string[] = ['activity', 'description', 'deadLine', 'exceeded', 'completed', 'actions'];
+  showNewActivity : boolean = false;
 
   @ViewChild(MatTable) table!: MatTable<List>;
 
@@ -25,6 +26,8 @@ export class ListComponent implements OnInit {
     })
   }
 
-  openCreateTaskModal(){}
+  openCreateActivityModal(){
+    this.showNewActivity = true;
+  }
 
 }

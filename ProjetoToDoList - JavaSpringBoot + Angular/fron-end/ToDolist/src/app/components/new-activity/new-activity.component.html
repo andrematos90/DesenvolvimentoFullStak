@@ -1,0 +1,22 @@
+<mat-icon class="mat-18">close</mat-icon>
+
+<form class="new-activity-form">
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Nova Atividade</mat-label>
+    <input matInput>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Descrição</mat-label>
+    <textarea matInput placeholder="descreva a atividade.."></textarea>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Custom calendar header</mat-label>
+    <input matInput [matDatepicker]="picker">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker [calendarHeaderComponent]="exampleHeader"></mat-datepicker>
+  </mat-form-field>
+</form>

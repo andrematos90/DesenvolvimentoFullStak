@@ -15,6 +15,11 @@ import { MatTableModule } from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatButtonModule } from '@angular/material/button';
+import { NewActivityComponent } from './components/new-activity/new-activity.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+
 
 
 @NgModule({
@@ -24,6 +29,7 @@ import { MatButtonModule } from '@angular/material/button';
     FooterComponent,
     HomeComponent,
     ListComponent,
+    NewActivityComponent,
 
   ],
   imports: [
@@ -36,7 +42,10 @@ import { MatButtonModule } from '@angular/material/button';
     MatTableModule,
     HttpClientModule,
     MatTooltipModule,
-    MatButtonModule
+    MatButtonModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
 
 
   ],
