@@ -14,7 +14,8 @@ export class ListComponent implements OnInit {
 
   dataSource:List[]=[]
   displayedColumns: string[] = ['activity', 'description', 'deadLine', 'exceeded', 'completed', 'actions'];
-  showNewActivity : boolean = false;
+
+  showNewActivityModal : boolean = false;
 
   @ViewChild(MatTable) table!: MatTable<List>;
 
@@ -26,8 +27,14 @@ export class ListComponent implements OnInit {
     })
   }
 
+  //função faz o modal abrir
   openCreateActivityModal(){
-    this.showNewActivity = true;
+    this.showNewActivityModal = true;
+  }
+
+  //função que recebe do componente filho o valor da variavel "showNewActivityModal" e fecha o modal
+  closeCreateActivityModal(showNewActivityModal:boolean){
+    this.showNewActivityModal = showNewActivityModal
   }
 
 }

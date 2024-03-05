@@ -1,5 +1,5 @@
 <button mat-raised-button (click)="openCreateActivityModal()" class="demo-button example-label">
-  Adionar Tarefa
+  Adionar Atividade
 </button>
 
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
@@ -63,8 +63,8 @@
 </table>
 
 
-<div class="modal-overlay" *ngIf="showNewActivity">
+<div class="modal-overlay" *ngIf="showNewActivityModal">
   <div class="modal-content">
     <!-- Conteúdo do modal -->
-    <app-new-activity></app-new-activity>
+    <app-new-activity (showNewActivityModal)=" closeCreateActivityModal($event)"></app-new-activity>
   </div>

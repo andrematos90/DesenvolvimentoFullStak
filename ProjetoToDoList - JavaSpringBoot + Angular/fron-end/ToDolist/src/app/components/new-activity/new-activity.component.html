@@ -1,9 +1,9 @@
-<mat-icon class="mat-18">close</mat-icon>
+<mat-icon class="mat-18" (click)="closeModal()">close</mat-icon>
 
 <form class="new-activity-form">
 
   <mat-form-field class="example-full-width">
-    <mat-label>Nova Atividade</mat-label>
+    <mat-label>Titulo da Atividade</mat-label>
     <input matInput>
   </mat-form-field>
 
@@ -19,4 +19,10 @@
     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker [calendarHeaderComponent]="exampleHeader"></mat-datepicker>
   </mat-form-field>
+
+
+  <div class="example-button-row" >
+    <button mat-button color="accent">Salvar Atividade</button>
+  </div>
+
 </form>
