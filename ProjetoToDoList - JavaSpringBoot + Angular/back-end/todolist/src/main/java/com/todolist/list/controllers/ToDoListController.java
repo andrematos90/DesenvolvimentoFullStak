@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,9 +23,20 @@ public class ToDoListController {
 
 
     @PostMapping
-    public ResponseEntity<ToDoListModel> saveActivity(@RequestBody @Valid ToDoListModel toDoListModdel){
+    public ResponseEntity<ToDoListModel> saveActivity(@RequestBody @Valid ToDoListModel toDoListModel){
+        Object deadLine = toDoListModel.getDeadLine();
+        if (deadLine instanceof String) {
+            try {
+                String dataString = (String) deadLine;
+                LocalDate localDate = LocalDate.parse(dataString);
+                toDoListModel.setDeadLine(localDate);
+            } catch (DateTimeParseException e) {
+                return ResponseEntity.badRequest().build(); // Retorna uma resposta de erro se a string não estiver no formato correto
+            }
+        }
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(toDoListService.saveActivity(toDoListModdel));
+        ToDoListModel savedActivity = toDoListService.saveActivity(toDoListModel);
+        return ResponseEntity.status(HttpStatus.CREATED).body(savedActivity);
     }
 
     @GetMapping("/{id}")

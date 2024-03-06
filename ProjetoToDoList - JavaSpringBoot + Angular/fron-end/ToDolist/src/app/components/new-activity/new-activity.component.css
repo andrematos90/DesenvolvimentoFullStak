@@ -1,3 +1,9 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
 .new-activity-form {
   background-color: rgb( 66, 66, 66); /* Cor de fundo do modal */
   padding: 20px;

@@ -1,15 +1,16 @@
-<mat-icon class="mat-18" (click)="closeModal()">close</mat-icon>
+<div class="container">
+  <mat-icon class="mat-18" (click)="closeModal()">close</mat-icon>
 
 <form class="new-activity-form">
 
   <mat-form-field class="example-full-width">
     <mat-label>Titulo da Atividade</mat-label>
-    <input matInput>
+    <input matInput  [(ngModel)]="data.activity" name="activityTitle" required>
   </mat-form-field>
 
   <mat-form-field class="example-full-width">
     <mat-label>Descrição</mat-label>
-    <textarea matInput placeholder="descreva a atividade.."></textarea>
+    <textarea matInput placeholder="descreva a atividade.." [(ngModel)]="data.description" name="desciptionName"></textarea>
   </mat-form-field>
 
   <mat-form-field>
@@ -22,7 +23,9 @@
 
 
   <div class="example-button-row" >
-    <button mat-button color="accent">Salvar Atividade</button>
+    <button mat-button color="accent" (click)="createActivity()">Salvar Atividade</button>
   </div>
 
 </form>
+
+</div>

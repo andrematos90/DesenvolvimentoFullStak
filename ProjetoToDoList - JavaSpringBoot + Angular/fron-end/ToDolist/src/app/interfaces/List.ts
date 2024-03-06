@@ -3,7 +3,6 @@ export interface List{
   description : String;
   completed : boolean;
   exceeded : boolean;
-  duration : Date;
-  deadLine : Date
+  deadLine : Date;
 }
 
