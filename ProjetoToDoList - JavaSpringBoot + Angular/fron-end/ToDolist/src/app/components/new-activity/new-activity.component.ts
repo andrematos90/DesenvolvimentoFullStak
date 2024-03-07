@@ -3,6 +3,7 @@ import { error } from 'console';
 import { List } from 'src/app/interfaces/List';
 import { NewActivityService } from 'src/app/services/new-activity.service';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
+import { ListService } from 'src/app/services/list.service';
 
 
 @Component({
@@ -28,6 +29,8 @@ export class NewActivityComponent implements OnInit {
     deadLine: new Date()
   }
 
+  dataSource:List[]=[]
+
 
   constructor(private activityService : NewActivityService) { }
 
@@ -46,6 +49,7 @@ export class NewActivityComponent implements OnInit {
 
   // Método para preencher a data na propriedade deadLine
   setDeadline(event: MatDatepickerInputEvent<Date>) {
+    console.log("acionou")
     if(event.value != null){
       this.data.deadLine = event.value;
     } else{
@@ -58,11 +62,15 @@ export class NewActivityComponent implements OnInit {
     this.activityService.saveActivity(this.data).subscribe(
       response => {
         console.log("dados enviados com sucesso!", response);
+
       },
       error => {
         console.error("Erro ao enviar dados", error);
       }
     )
+
+    this.closeModal();
+
 
   }
 
