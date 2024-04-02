@@ -1,7 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { error } from 'console';
 import { List } from 'src/app/interfaces/List';
-import { NewActivityService } from 'src/app/services/new-activity.service';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { ListService } from 'src/app/services/list.service';
 import { ListUpDateService } from 'src/app/services/list-up-date.service';
@@ -35,7 +34,7 @@ export class NewActivityComponent implements OnInit {
 
 
 
-  constructor(private activityService : NewActivityService, private listUpDateService : ListUpDateService) { }
+  constructor(private activityService : ListService, private listUpDateService : ListUpDateService) { }
 
   ngOnInit(): void {
 
