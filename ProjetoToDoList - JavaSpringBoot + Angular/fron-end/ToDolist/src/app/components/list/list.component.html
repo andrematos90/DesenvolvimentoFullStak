@@ -48,11 +48,12 @@
           edit_note
         </span>
       </mat-icon>
-      <mat-icon class="mat-18">
-        <span class="material-symbols-outlined" mat-raised-button matTooltip="Excluir Tarefa">
-          delete_forever
-        </span>
-      </mat-icon>
+      <button mat-raised-button (click)="openDialog()">
+        <mat-icon class="mat-18">
+          <span class="material-symbols-outlined" mat-raised-button matTooltip="Excluir Tarefa" >
+            delete_forever
+          </span>
+        </mat-icon></button>
     </td>
   </ng-container>
 

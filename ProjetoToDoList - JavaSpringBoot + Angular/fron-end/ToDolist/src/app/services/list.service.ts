@@ -14,7 +14,16 @@ export class ListService {
 
   constructor(private http: HttpClient) { }
 
-  getList():Observable<List[]>{
+  getList(): Observable<List[]> {
     return this.http.get<List[]>(this.apiURL)
+  };
+
+  saveActivity(data: List):Observable<List>{
+    return this.http.post<List>(this.apiURL, data);
+  };
+
+  deleteActivity(itemId: number): Observable<any> {
+    return this.http.delete(`${this.apiURL}/${itemId}`);
   }
+
 }

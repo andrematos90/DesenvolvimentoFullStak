@@ -20,6 +20,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DeleteDialogComponent } from './components/delete-dialog/delete-dialog.component';
+
 
 
 
@@ -31,6 +34,7 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     ListComponent,
     NewActivityComponent,
+    DeleteDialogComponent,
 
   ],
   imports: [
@@ -47,7 +51,8 @@ import { FormsModule } from '@angular/forms';
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule
 
 
   ],
