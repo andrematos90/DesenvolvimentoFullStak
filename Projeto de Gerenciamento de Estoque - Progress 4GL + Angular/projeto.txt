@@ -1,0 +1,38 @@
+Projeto: Sistema de Gerenciamento de Estoque
+1. Objetivo do Sistema
+Criar um sistema web para gerenciar estoques, produtos, pedidos, e fornecedores. O sistema permitirá que usuários façam o controle de entrada e saída de produtos, acompanhem o nível de estoque em tempo real e façam pedidos de reabastecimento.
+
+2. Funcionalidades do Sistema
+Backend (Progress 4GL)
+Gerenciamento de Produtos: APIs para criar, atualizar e excluir produtos, além de recuperar dados como nome, SKU, quantidade e preço.
+Controle de Estoque: APIs para atualizar o estoque (entrada e saída de produtos), verificar o nível de estoque e alertar sobre produtos com estoque baixo.
+Gestão de Pedidos: Funções para criar e acompanhar pedidos, registrando status (ex.: pendente, processado, entregue).
+Cadastro de Fornecedores: CRUD para fornecedores, associando produtos a fornecedores específicos para facilitar pedidos de reabastecimento.
+Relatórios: Geração de relatórios sobre estoque, histórico de movimentações e status de pedidos.
+Frontend (Angular)
+Dashboard: Um painel com gráficos e indicadores de estoque (nível de produtos, status de pedidos, etc).
+Gerenciamento de Produtos: Tela para cadastrar, visualizar, editar e excluir produtos com filtros por categoria e status de estoque.
+Controle de Estoque: Tela para gerenciar entradas e saídas, onde o usuário pode registrar novas movimentações.
+Gestão de Pedidos: Interface para criar e acompanhar pedidos, com atualização do status e histórico de cada pedido.
+Cadastro de Fornecedores: Tela de cadastro e associação de produtos a fornecedores.
+Notificações e Alertas: Exibição de alertas automáticos no frontend para avisar sobre produtos com estoque abaixo do limite pré-configurado.
+3. Arquitetura
+Backend (Progress 4GL): Implementação das APIs RESTful para operações CRUD. O Progress 4GL pode acessar e gerenciar o banco de dados diretamente, implementando lógica de negócios e validações.
+Frontend (Angular): Consome as APIs do backend, exibe dados de forma interativa e permite que os usuários façam operações em tempo real. Pode-se utilizar o Angular Material para design mais moderno.
+4. Tecnologias
+Progress 4GL: Para desenvolvimento de backend e gerenciamento de dados.
+Angular: Para a interface do usuário.
+Banco de Dados Progress: Armazenamento de produtos, pedidos, fornecedores e movimentações de estoque.
+Bootstrap ou Angular Material: Para estilização da interface e design responsivo.
+5. Benefícios do Projeto
+Centralização de informações de estoque e pedidos em um único sistema.
+Redução de erros manuais com automação de processos.
+Acompanhamento em tempo real do inventário.
+Facilidade na tomada de decisões sobre reabastecimento e controle de estoque.
+6. Etapas de Desenvolvimento
+Planejamento: Definição de requisitos, análise de funcionalidades e layout.
+Desenvolvimento do Backend: Criação das APIs e lógica de negócios.
+Desenvolvimento do Frontend: Implementação das telas e consumo das APIs.
+Testes e Ajustes: Testes de integração entre frontend e backend, ajustes e correções.
+Implantação: Colocar o sistema em produção e fornecer treinamento aos usuários.
+Esse projeto pode ser expandido para incluir outras funcionalidades no futuro, como um módulo financeiro para acompanhar custos e lucros diretamente no sistema, ou mesmo integrações com sistemas de fornecedores para agilizar pedidos.
