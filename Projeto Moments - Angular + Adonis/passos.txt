@@ -1,0 +1,26 @@
+Passos para salvar um momento:
+
+
+Aqui estão os passos gerais para salvar as informações do formulário no backend:
+
+Crie um Serviço no Angular:
+
+Crie um serviço para gerenciar a comunicação com o backend, onde você definirá métodos para enviar dados ao servidor (como o método saveMoment).
+Configure o Método de Envio no Serviço:
+
+No serviço, defina uma função que faça uma requisição HTTP para o backend (provavelmente usando HttpClient.post). Essa função deve enviar os dados do formulário para a rota do backend responsável por salvar esses dados.
+Chame o Serviço no Componente:
+
+No componente, dentro do método submit, use o serviço para enviar o formulário ao backend. Garanta que os dados do formulário sejam convertidos em um formato adequado (ex.: JSON ou FormData se estiver lidando com imagens).
+Manipule Respostas do Backend:
+
+Após a submissão, você pode configurar uma resposta para confirmar se o envio foi bem-sucedido ou exibir mensagens de erro em caso de falhas. Isso ajuda a dar feedback ao usuário.
+Configure o Backend para Receber e Salvar os Dados:
+
+No Adonis, assegure-se de que a rota correta esteja configurada para receber e processar a requisição (POST) com os dados que o formulário do Angular está enviando.
+Esses são os passos principais para fazer essa integração e salvar os dados no backend!
+
+
+Passos para visualisar o que foi salvo:
+
+Para exibir os momentos salvos, você pode adicionar um método no MomentsService que recupera os dados do backend, e depois exibir esses momentos em um componente.

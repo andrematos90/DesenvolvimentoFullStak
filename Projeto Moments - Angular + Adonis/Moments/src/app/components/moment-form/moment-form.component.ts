@@ -1,6 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output,EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Title } from '@angular/platform-browser';
+import { MomentService } from 'src/app/services/moment.service';
+
+
 
 
 
@@ -9,37 +11,49 @@ import { Title } from '@angular/platform-browser';
   templateUrl: './moment-form.component.html',
   styleUrls: ['./moment-form.component.css']
 })
-export class MomentFormComponent implements OnInit{
+export class MomentFormComponent implements OnInit {
 
- @Input() btnText!: String;
+  @Input() btnText!: string;
+  image?: File;
 
- momentForm!: FormGroup;
+  momentForm!: FormGroup;
 
- constructor(){}
+  constructor(private momentService: MomentService) { }
 
- ngOnInit(): void {
-     this.momentForm = new FormGroup({
+  ngOnInit(): void {
+    this.momentForm = new FormGroup({
       id: new FormControl(''),
       title: new FormControl('', [Validators.required]),
       description: new FormControl('', [Validators.required]),
       image: new FormControl(''),
-     });
- }
+    });
+  }
 
- get title(){
-  return this.momentForm.get('title');
- }
+  get title() {
+    return this.momentForm.get('title')!;
+  }
 
- get description(){
-  return this.momentForm.get('description');
- }
+  get description() {
+    return this.momentForm.get('description')!;
+  }
 
- get image(){
-  return this.momentForm.get('image');
- }
+  onFileSelected(event:any){
 
- submit(){
-  console.log("enviou formulário")
- }
+    const file: File = event.target.files[0]
+
+    this.momentForm.patchValue({image:event.target.files[0]});
+  }
+
+  submit():void {
+    
+   console.log(this.momentForm.value)
+   
+    this.momentService.saveMoment(this.momentForm).subscribe(response =>{
+      console.log('Momento salvo com sucesso', response);
+    }, error =>{
+      console.error('Erro ao salvar momento', error);
+    })
+   
+  }
 
 }
