@@ -18,8 +18,8 @@ export class MomentListComponent implements OnInit{
   }
 
   fetchMoments():void{
-    this.momentService.getMoments().subscribe(data =>{
-     this.moments = data;
+    this.momentService.getMoments().subscribe(response =>{
+     this.moments = response.moments;
     }, error => {
       console.error('Erro ao carregar momentos', error);
     });
