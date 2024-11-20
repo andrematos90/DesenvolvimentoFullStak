@@ -4,6 +4,7 @@ import { FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environment/environment';
 import { Moment } from '../Moment';
+import { GetResponse } from '../GetResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +30,7 @@ export class MomentService {
 
   //recupera momento para ser exibido no componente
   getMoments():Observable<GetResponse<Moment>>{
+    console.log("veio")
     return this.http.get<GetResponse<Moment>>(this.apiUrl);
   }
 }

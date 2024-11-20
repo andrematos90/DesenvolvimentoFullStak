@@ -12,6 +12,10 @@ import { HomeComponent } from './pages/home/home.component';
 import { NewMomentComponent } from './pages/new-moment/new-moment.component';
 import { MomentFormComponent } from './components/moment-form/moment-form.component';
 import { MomentListComponent } from './pages/moment-list/moment-list.component';
+import { MomentActionsComponent } from './components/moment-actions/moment-actions.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -22,14 +26,18 @@ import { MomentListComponent } from './pages/moment-list/moment-list.component';
     HomeComponent,
     NewMomentComponent,
     MomentFormComponent,
-    MomentListComponent
+    MomentListComponent,
+    MomentActionsComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

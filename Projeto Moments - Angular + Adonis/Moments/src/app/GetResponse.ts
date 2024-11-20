@@ -1,6 +1,4 @@
-import { Moment } from "./Moment";
-
-export interface GetResponse<T> {
-    moments:  T[],
- 
+export interface GetResponse<T>{
+   message?:string;
+   data:T;
 }

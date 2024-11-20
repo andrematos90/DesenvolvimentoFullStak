@@ -1,0 +1,30 @@
+.moment-container{
+    max-width: 1200px;
+    margin: 0;
+    padding: 20px;
+}
+
+.moments{
+    display: flex;
+    flex-wrap: wrap;
+    gap:20px
+}
+
+.moment-card{
+    flex: 1 1 300px;
+    padding: 15px;
+    border:1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+}
+
+.moment-card h3{
+    margin-top: 0;
+    color: #333;
+}
+
+.moment-card p{
+    color:#665;
+}

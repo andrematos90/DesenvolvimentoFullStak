@@ -1,7 +1,9 @@
-<div>
+<div class="moment-container">
     <h2>Meus Momentos</h2>
-    <div *ngFor="let moment of moments">
-      <h3>{{ moment.title }}</h3>
-      <p>{{ moment.description }}</p>
-    </div>
+    <div class="moments">
+      <div *ngFor="let moment of moments" class="moment-card">
+        <h3>{{ moment.title }}</h3>
+        <p>{{ moment.description }}</p>
+        <app-moment-actions class="moment-actions"></app-moment-actions>
+      </div>
 </div>
