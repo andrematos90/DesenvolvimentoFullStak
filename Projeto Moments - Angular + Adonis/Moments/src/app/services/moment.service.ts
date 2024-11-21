@@ -33,4 +33,10 @@ export class MomentService {
     console.log("veio")
     return this.http.get<GetResponse<Moment>>(this.apiUrl);
   }
+  
+
+  //deleta um momento
+  deleteMoment(id:string | number):Observable<void>{
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
 }

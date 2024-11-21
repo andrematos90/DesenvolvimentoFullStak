@@ -20,10 +20,17 @@ export class MomentListComponent implements OnInit{
   fetchMoments():void{
     this.momentService.getMoments().subscribe((items)=>{
       this.moments = Array.isArray(items.data) ? items.data : [items.data];
+    
 
     }, error =>{
       console.error("Erro ao carregar Momento!")
     })
     }
+
+    removeMoment(id: number): void {
+      this.moments = this.moments.filter(moment => moment.id !== id);
+      console.log("limpou")
+    }
+    
   
 }

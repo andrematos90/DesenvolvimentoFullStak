@@ -4,6 +4,9 @@
       <div *ngFor="let moment of moments" class="moment-card">
         <h3>{{ moment.title }}</h3>
         <p>{{ moment.description }}</p>
-        <app-moment-actions class="moment-actions"></app-moment-actions>
+        <app-moment-actions class="moment-actions"
+        [moment]="moment"
+        (deleted)="removeMoment($event)"
+        ></app-moment-actions>
       </div>
 </div>
