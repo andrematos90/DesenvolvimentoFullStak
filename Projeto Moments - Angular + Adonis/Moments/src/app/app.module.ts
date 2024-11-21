@@ -17,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatIconModule } from '@angular/material/icon';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +38,9 @@ import { MatIconModule } from '@angular/material/icon';
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatIconModule
+    MatIconModule,
+ 
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
