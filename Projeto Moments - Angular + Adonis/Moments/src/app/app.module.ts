@@ -16,6 +16,7 @@ import { MomentActionsComponent } from './components/moment-actions/moment-actio
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { MatIconModule } from '@angular/material/icon';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatIconModule,
+    MatDialogModule
  
     
   ],

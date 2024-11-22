@@ -2,6 +2,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Moment } from 'src/app/Moment'; // Certifique-se que Moment está correto
 import { MomentService } from 'src/app/services/moment.service';
 import { MomentFormComponent } from '../moment-form/moment-form.component';
+import { MatDialog} from '@angular/material/dialog'
 
 
 @Component({
@@ -40,6 +41,7 @@ export class MomentActionsComponent {
     console.log("Abriu modal do formulário");
     this.dialog.open(MomentFormComponent,{
       width:'400px',
+      height: '600px'
       
     })
 
