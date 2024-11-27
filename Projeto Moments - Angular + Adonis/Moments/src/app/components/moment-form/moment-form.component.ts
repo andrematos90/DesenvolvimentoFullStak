@@ -1,6 +1,8 @@
 import { Component, Input, OnInit, Output,EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { MomentService } from 'src/app/services/moment.service';
+
 
 
 
@@ -18,7 +20,7 @@ export class MomentFormComponent implements OnInit {
 
   momentForm!: FormGroup;
 
-  constructor(private momentService: MomentService) { }
+  constructor(private momentService: MomentService, private router:Router) { }
 
   ngOnInit(): void {
     this.momentForm = new FormGroup({
@@ -53,6 +55,8 @@ export class MomentFormComponent implements OnInit {
     }, error =>{
       console.error('Erro ao salvar momento', error);
     })
+
+    this.router.navigate(['moments']);
    
   }
 
