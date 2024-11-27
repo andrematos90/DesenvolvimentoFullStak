@@ -1,4 +1,4 @@
-Passos para salvar um momento:
+PASSOS PARA SALVAR UM REGISTRO:
 
 
 Aqui estão os passos gerais para salvar as informações do formulário no backend:
@@ -24,3 +24,63 @@ Esses são os passos principais para fazer essa integração e salvar os dados n
 Passos para visualisar o que foi salvo:
 
 Para exibir os momentos salvos, você pode adicionar um método no MomentsService que recupera os dados do backend, e depois exibir esses momentos em um componente.
+
+
+
+
+
+PASSOS PARA REDIRECIONAR PARA UMA PÁGINA:
+
+
+Importar e Configurar o Router:
+
+No componente de onde você deseja redireciona
+import { Router } from '@angular/router';
+
+
+Injete o Router no construtor do componente:
+constructor(private router: Router) {}
+
+
+Redirecione usando o método navigate:
+this.router.navigate(['/registros']);
+
+
+2. Configurar a Rota no app-routing.module.ts
+Se a rota ainda não estiver registrada, adicione-a no arquivo app-routing.module.ts (ou no arquivo de rotas correspondente):
+
+Certifique-se de importar o componente para o qual deseja redirecionar:
+import { ListaDeRegistrosComponent } from './lista-de-registros/lista-de-registros.component';
+
+
+Configure a rota no array de rotas:
+const routes: Routes = [
+  { path: 'registros', component: ListaDeRegistrosComponent },
+  // Outras rotas...
+];
+
+
+Não esqueça de exportar as rotas:
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
+})
+export class AppRoutingModule {}
+
+
+3. Testar o Fluxo
+Agora, ao chamar this.router.navigate(['/registros']);, o Angular redirecionará para a página /registros que está associada ao componente ListaDeRegistrosComponent.
+
+Se você quiser passar dados adicionais (como um ID do registro recém-criado), pode fazer isso de duas formas:
+
+Query Params (mais comum):
+
+this.router.navigate(['/registros'], { queryParams: { id: registroCriado.id } });
+State (opcional, para dados transitórios):
+
+ou
+
+this.router.navigate(['/registros'], { state: { registro: registroCriado } });
+Depois, você pode acessar esses dados no componente de destino usando o serviço ActivatedRoute ou a propriedade history.state.
+
+Seguindo esse fluxo, você garante que as rotas estão configuradas corretamente e que o redirecionamento funcione como esperado. 🎉
