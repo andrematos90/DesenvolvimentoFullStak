@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { Observable, Subject  } from 'rxjs';
 import { environment } from 'src/environment/environment';
 import { Moment } from '../Moment';
 import { GetResponse } from '../GetResponse';
@@ -15,6 +15,12 @@ export class MomentService {
   private baseApiUrl = environment.baseApiUrl;
   private apiUrl = `${this.baseApiUrl}api/moments`
 
+   // Subject para notificar atualizações
+   private momentsUpdated = new Subject<void>();
+
+   // Observable para se inscrever
+  momentsUpdated$ = this.momentsUpdated.asObservable();
+
   constructor(private http: HttpClient) { }
 
   //salva momento
@@ -26,6 +32,12 @@ export class MomentService {
     formData.append('image', moment.get('image')?.value);
 
     return this.http.post(this.apiUrl, formData);
+  }
+
+
+  // Método para notificar os componentes sobre uma atualização
+  notifyUpdate() {
+    this.momentsUpdated.next();
   }
 
   //recupera momento para ser exibido no componente

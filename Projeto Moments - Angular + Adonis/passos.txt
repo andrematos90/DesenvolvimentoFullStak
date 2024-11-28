@@ -83,4 +83,15 @@ ou
 this.router.navigate(['/registros'], { state: { registro: registroCriado } });
 Depois, você pode acessar esses dados no componente de destino usando o serviço ActivatedRoute ou a propriedade history.state.
 
-Seguindo esse fluxo, você garante que as rotas estão configuradas corretamente e que o redirecionamento funcione como esperado. 🎉
+Seguindo esse fluxo, você garante que as rotas estão configuradas corretamente e que o redirecionamento funcione como esperado. 
+
+
+
+PASSOA PARA ATUALIZAR UM REGISTRO:
+
+Quando o botão "Atualizar" é clicado, os dados do momento selecionado são enviados para o modal.
+Editar os dados no modal:
+O modal é aberto com um formulário preenchido com os dados recebidos.
+Atualizar os dados no backend:
+Após as alterações, o modal retorna os dados atualizados ao componente pai, que faz a 
+chamada ao serviço para atualizar o registro no backend.
