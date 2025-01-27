@@ -15,8 +15,6 @@ export class MomentActionsComponent {
   @Input() moment!: Moment
   @Output() deleted = new EventEmitter<number>();
 
-  viewForm: boolean = false
-
   constructor(private momentService: MomentService, private dialog: MatDialog) { }
 
   deleteMoment(): void {
@@ -36,15 +34,26 @@ export class MomentActionsComponent {
     }
   }
 
-  openFormModal():void {
-    this.viewForm = true;
-    console.log("Abriu modal do formulário");
-    this.dialog.open(MomentFormComponent,{
-      width:'400px',
-      height: '600px'
-      
-    })
-
+  upDateMoment(): void {
+    const dialogRef = this.dialog.open(MomentFormComponent, {
+      width: '400px',
+      height: '600px',
+      data: { ...this.moment } // Passar o momento como dado para o modal
+    });
+  
+    // Após fechar o modal, processar os dados atualizados
+    dialogRef.afterClosed().subscribe((updatedMoment) => {
+      if (updatedMoment) {
+        this.momentService.updateMoment(this.moment.id!, updatedMoment).subscribe({
+          next: (response) => {
+            console.log('Momento atualizado com sucesso!', response);
+            // Atualize os dados localmente ou recarregue a lista
+          },
+          error: (err) => {
+            console.error('Erro ao atualizar o momento:', err);
+          }
+        });
+      }
+    });
   }
-
 }
