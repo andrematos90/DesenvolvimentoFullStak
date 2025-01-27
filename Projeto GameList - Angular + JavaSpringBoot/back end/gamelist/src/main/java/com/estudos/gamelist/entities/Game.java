@@ -15,15 +15,23 @@ public class Game {
     //autoincremeta o id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String title;
+
     //altera o nome da coluna
     @Column(name = "game_year")
     private Integer year;
+
     private String genre;
     private String platforms;
     private Double score;
     private String imgUrl;
+
+    //define que o campo recebe texto e nao apenas string de 255 caracteres
+    @Column(columnDefinition = "TEXT")
     private String shortDescription;
+
+    @Column(columnDefinition = "TEXT")
     private String longDescription;
 
     //construtor sem parametros
