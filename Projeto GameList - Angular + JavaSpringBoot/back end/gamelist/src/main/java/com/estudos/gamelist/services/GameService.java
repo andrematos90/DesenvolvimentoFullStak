@@ -3,6 +3,7 @@ package com.estudos.gamelist.services;
 import com.estudos.gamelist.dtos.GameDTO;
 import com.estudos.gamelist.dtos.GameMinDTO;
 import com.estudos.gamelist.entities.Game;
+import com.estudos.gamelist.entities.GameList;
 import com.estudos.gamelist.repositories.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
